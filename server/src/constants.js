@@ -1,1 +1,1 @@
-DB_NAME = 'food_donation_system'
+export const DB_NAME = 'food_donation_system'
