@@ -1,0 +1,1 @@
+DB_NAME = 'food_donation_system'
