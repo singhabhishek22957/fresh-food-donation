@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 import userRouter from './routes/user.router.js';
 
-app('/api/v1/user', userRouter);
+app.use('/api/v1/user', userRouter);
 
 
 export default app;

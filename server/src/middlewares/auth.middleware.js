@@ -47,3 +47,5 @@ const isAuthenticated = asyncHandler(async(req,resizeBy,next)=>{
    
     
 })
+
+export default isAuthenticated;
