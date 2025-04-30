@@ -182,8 +182,13 @@ const login = asyncHandler(async (req, res) => {
     return res.status(401).json(new ApiResponse(401, "Invalid Password"));
   }
 
+  console.log("user: ", user);
+  
   const { accessToken, refreshToken } =
     await generateAccessTokenAndRefreshToken(user._id);
+    console.log("Access Token: ", accessToken);
+    console.log("Refresh Token: ", refreshToken);
+    
 
   const userDetails = await User.findById({
     _id: user._id,
