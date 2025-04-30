@@ -1,8 +1,8 @@
 import {Router} from "express";
-import { getUser, login, logout, registerUser, testing } from "../controllers/userControllers.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { isUserAuthenticated } from "../middlewares/auth.middleware.js";
 import { userDonationHistory } from "../controllers/acceptedDonationByCharity.controllers.js";
+import { getUser, login, logout, registerUser, testing } from "../controllers/user.controllers.js";
 
 
 const router = Router();
