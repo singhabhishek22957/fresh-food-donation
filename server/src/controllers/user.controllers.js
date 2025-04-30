@@ -4,6 +4,8 @@ import ApiResponse from "../utils/ApiResponse.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
+// generate AccessToken And Refresh Token 
+
 const generateAccessRefreshToken = asyncHandler(async (userId) => {
   const user = await User.findById(userId);
 
@@ -207,6 +209,12 @@ const getUserDetails = asyncHandler(async (req, res, next) => {
 });
 
 const testing = asyncHandler(async (req, res, next) => {
+  return res.status(200).json({
+    data:{
+      name:"Testing",
+      intention:"Check it is working or not if able to see on frontend, then its worked successfully"
+    }
+  })
   console.log("hello world");
 });
 

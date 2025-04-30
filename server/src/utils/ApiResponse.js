@@ -1,10 +1,10 @@
 class ApiResponse{
-    constructor(statusCode,data,message="respond Send"){
-        this.statusCode=statusCode;
-        this.data=data;
-        this.message=message;
-        this.success=statusCode<400;
+    constructor(statusCode,message="Response send",data={}){
+        this.statusCode = statusCode;
+        this.message = message;
+        this.data = data
+        this.success= statusCode<400
     }
 }
 
-export default ApiResponse;
+export {ApiResponse}

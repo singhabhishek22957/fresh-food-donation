@@ -1,34 +1,29 @@
-import { Router } from "express";
-import { getUserDetails, loginUser, logoutUser, registerUser, testing } from "../controllers/user.controllers.js";
-import isAuthenticated from "../middlewares/auth.middleware.js";
+import {Router} from "express";
+import { getUser, login, logout, registerUser, testing } from "../controllers/userControllers.js";
+import { upload } from "../middlewares/multer.middleware.js";
+import { isUserAuthenticated } from "../middlewares/auth.middleware.js";
+import { userDonationHistory } from "../controllers/acceptedDonationByCharity.controllers.js";
 
 
 const router = Router();
 
+router.route('/').get((req, res) => res.send("User Route"))
 
-router.route("/testing").post(testing)
+router.route("/register").post(upload.fields([{"name":"avatar", maxCount:1}]), registerUser);
+router.route("/login").post(login);
+router.route("/logout").get(isUserAuthenticated,logout)
+router.route("/get-user").get(isUserAuthenticated,getUser);  
 
-// create user 
+router.route('/testing').post(testing)
 
-router.route("/register").post(registerUser);
+// router.route('*', (req, res) => res.status(404).send("Route not found"))
 
-// login user 
-
-router.route("/login").post(loginUser);
-
-// logout user
-
-router.route("/logout").post( isAuthenticated,logoutUser)
-
-// get user
-
-router.route("/getUser").get( isAuthenticated,getUserDetails)
+// donation history 
+router.route("/donation-history").post(isUserAuthenticated,userDonationHistory);
 
 
 
 
 
 
-
-
-export default router ;
+export default router
