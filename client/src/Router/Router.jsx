@@ -7,7 +7,7 @@ import CharityProfile from "../Components/Charity/CharityProfile.jsx";
 import UserProfile from "../Components/User/UserProfile.jsx";
 import LandingFood from "../BasicPage/LandingFood.jsx";
 import About from "../BasicPage/About.jsx";
-import CharityList from "../Components/Charity/charityList.jsx";
+import CharityList from "../Components/Charity/CharityList.jsx";
 import UnAuthorizedCharityIntro from "../Components/Charity/UnAuthorizedCharityIntro.jsx";
 import DonationForm from "../Components/Donation/DonationForm.jsx";
 import DonationList from "../Components/Donation/DonationList.jsx";
