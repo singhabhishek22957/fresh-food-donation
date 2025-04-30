@@ -80,6 +80,8 @@ const registerUser = asyncHandler(async (req, res, next) => {
 
 const loginUser = asyncHandler(async (req, res, next) => {
   const { email, username, password } = req.body;
+  console.log("Login erorrrr User Details: ", req.body);
+  
 
   if (!password || (email?.trim() === "" && username?.trim() === "")) {
     throw new ApiError(400, "password, Email or username is required");
@@ -110,10 +112,15 @@ const loginUser = asyncHandler(async (req, res, next) => {
       )
     );
   }
+console.log("User Exist: ", userExist);
 
   const { accessToken, refreshToken } =  generateAccessRefreshToken(
     userExist._id
   );
+
+  console.log("Access Token: ", accessToken);
+  console.log("Refresh Token: ", refreshToken);
+  
 
   const loggedInUser = await User.findById(userExist._id).select(
     "-password -refreshToken"
