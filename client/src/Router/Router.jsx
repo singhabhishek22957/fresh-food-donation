@@ -1,5 +1,5 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
-import Layout from "../Layout/layout.jsx";
+import Layout from "../Layout/Layout.jsx";
 import Login from "../Components/Login.jsx";
 import UserRegister from "../Components/User/UserRegister.jsx";
 import CharityRegister from "../Components/Charity/CharityRegister.jsx";
