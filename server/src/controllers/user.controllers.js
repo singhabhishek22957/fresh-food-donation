@@ -13,8 +13,8 @@ const generateAccessRefreshToken = asyncHandler(async (userId) => {
     throw new ApiError(404, "User not found");
   }
 
-  const accessToken = user.generateAccessToken();
-  const refreshToken = user.generateRefreshToken();
+  const accessToken =  user.generateAccessToken();
+  const refreshToken =  user.generateRefreshToken();
 
   user.refreshToken = refreshToken;
   await user.save({
@@ -111,7 +111,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
     );
   }
 
-  const { accessToken, refreshToken } = await generateAccessRefreshToken(
+  const { accessToken, refreshToken } =  generateAccessRefreshToken(
     userExist._id
   );
 
