@@ -96,9 +96,9 @@ const Navbar = () => {
       {/* Logo Section */}
       <div className="flex items-center gap-2">
         <img
-          src="https://img.icons8.com/ios/50/ffffff/instagram-new.png"
+          src="https://res.cloudinary.com/df7sherc0/image/upload/v1748367145/gfisrdgre2vnlofnrrgc.png"
           alt="Logo"
-          className="h-8 w-8"
+          className="h-16 w-16"
         />
         <Link to="/" className="text-white text-xl font-bold">
           Food
