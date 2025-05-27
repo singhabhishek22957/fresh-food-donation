@@ -39,6 +39,12 @@ app.get("/", (req, res)=>{
 // Schedule the cron job to move unaccepted donations every hour
 cron.schedule("0 * * * *", moveUnacceptedDonations);
 
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 
 import userRouter from "./routes/user.router.js"
 app.use("/user",userRouter);
