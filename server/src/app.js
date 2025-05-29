@@ -2,7 +2,12 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import cron from "node-cron";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 
 const app = express();
@@ -39,11 +44,12 @@ app.get("/", (req, res)=>{
 // Schedule the cron job to move unaccepted donations every hour
 cron.schedule("0 * * * *", moveUnacceptedDonations);
 
-app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// use for refresh the page after deployment
+app.use(express.static(path.join(__dirname, 'build')));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 
 
 import userRouter from "./routes/user.router.js"

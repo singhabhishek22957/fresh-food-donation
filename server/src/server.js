@@ -1,6 +1,4 @@
-import express from "express";
 import dotenv from "dotenv";
-import { connect } from "mongoose";
 import connectMongoDB from "./db/index.js";
 import { app } from "./app.js";
 
